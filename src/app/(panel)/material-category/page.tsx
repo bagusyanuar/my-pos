@@ -8,13 +8,15 @@ import {
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import Link from "next/link"
+import TableMaterial from './section/Table'
+
 
 export default function MaterialCategoryPage() {
     return (<div>
-        <div className="w-full flex items-center justify-between">
+        <div className="w-full flex items-center justify-between mb-5">
             <div>
                 <h3 className="text-lg text-neutral-900 mb-0">Kategori Bahan Baku</h3>
-                <h5 className="text-sm text-neutral-700">Halaman manajemen kategori bahan baku</h5>
+                <h5 className="text-sm text-neutral-500 leading-none">Halaman manajemen kategori bahan baku</h5>
             </div>
             <Breadcrumb>
                 <BreadcrumbList>
@@ -30,5 +32,6 @@ export default function MaterialCategoryPage() {
                 </BreadcrumbList>
             </Breadcrumb>
         </div>
+        <TableMaterial />
     </div>);
 }
