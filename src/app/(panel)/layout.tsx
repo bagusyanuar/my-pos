@@ -3,10 +3,13 @@ import type { Metadata } from "next";
 import { Inter } from 'next/font/google';
 import "../globals.css"
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { AppSidebar } from '@/components/layouts/sidebar'
+import { AppNavbar } from '@/components/layouts/navbar'
+import { AppContent } from '@/components/layouts/content'
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+    subsets: ['latin'],
+    variable: '--font-inter',
 })
 // const poppins = Poppins({
 //   subsets: ['latin'],
@@ -26,14 +29,21 @@ export default function Layout({
     children: React.ReactNode;
 }>) {
     return (
-        <SidebarProvider>
-            <html lang="en">
-                <body
-                    className={`${inter.className}`}
-                >
-                    {children}
-                </body>
-            </html>
-        </SidebarProvider>
+
+        <html lang="en">
+            <body
+                className={`${inter.className}`}
+            >
+                <SidebarProvider>
+                    <AppSidebar />
+                    <main className="w-full">
+                        <AppNavbar />
+                        <AppContent>
+                            {children}
+                        </AppContent>
+                    </main>
+                </SidebarProvider>
+            </body>
+        </html>
     );
 }
